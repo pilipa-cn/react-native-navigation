@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -78,13 +79,27 @@ public class TitleBar extends Toolbar {
         colorOverflowButton(params);
         setBackground(params);
         centerTitle(params);
+        setTitleTextSize(params);
     }
 
     public void setVisibility(boolean titleBarHidden) {
         setVisibility(titleBarHidden ? GONE : VISIBLE);
     }
 
-    private void centerTitle(final StyleParams params) {
+    // 强制设置字体为18, 因为官方代码没有设置字体大小的属性
+    protected void setTitleTextSize(StyleParams params) {
+//        if (!params.titleBarTitleFont.hasFont()) {
+//            return;
+//        }
+        View titleView = getTitleView();
+        if (titleView instanceof TextView) {
+//            ((TextView) titleView).setTypeface(params.titleBarTitleFont.get());
+            ((TextView) titleView).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
+        }
+    }
+
+    // Always center title by BeanSoft
+    public void centerTitle(final StyleParams params) {
         final View titleView = getTitleView();
         if (titleView == null) {
             return;
@@ -92,10 +107,9 @@ public class TitleBar extends Toolbar {
         ViewUtils.runOnPreDraw(titleView, new Runnable() {
             @Override
             public void run() {
-                if (params.titleBarTitleTextCentered) {
+//                if (params.titleBarTitleTextCentered) {
                     titleView.setX(ViewUtils.getScreenWidth() / 2 - titleView.getWidth() / 2);
-                }
-                
+//                }
             }
         });
     }
@@ -134,6 +148,7 @@ public class TitleBar extends Toolbar {
         View titleView = getTitleView();
         if (titleView instanceof TextView) {
             ((TextView) titleView).setTypeface(params.titleBarTitleFont.get());
+            ((TextView) titleView).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 8);
         }
     }
 
