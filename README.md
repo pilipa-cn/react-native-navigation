@@ -1,10 +1,17 @@
+Pilipa的这个分支主要修改了安卓版的代码, Based on official 1.1.134 tag.
+
 What changes:
 
-1. Android support portrait only.
+1. Android support portrait only. 2017-06
 
-Based on official 1.1.134 tag.
 
-2. Remove call of prepare-robolectric.gradle and test depencies to speed up build progress on Android.
+2. Remove call of prepare-robolectric.gradle and test depencies to speed up build progress on Android. 标题栏默认居中, 字体写死为18dp 2017-07
+
+3. 增加了导航条下方的分割线 2017-08
+
+   ​
+
+   ​
 
 <h1 align="center">
   <img src="./logo.png"/><br>
