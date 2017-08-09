@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.design.widget.AppBarLayout;
+import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
@@ -49,6 +51,15 @@ public class TopBar extends AppBarLayout {
     protected void createLayout() {
         titleBarAndContextualMenuContainer = new FrameLayout(getContext());
         addView(titleBarAndContextualMenuContainer);
+
+        // Add a bottom divide line, use with style topBarElevationShadowEnabled: false TODO add color attribute
+        FrameLayout.LayoutParams bottomLineLayoutParams = new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT, 1, Gravity.BOTTOM);
+        View line = new View(getContext());
+        line.setBackgroundColor(0xffE6E6E6);
+        line.setLayoutParams(bottomLineLayoutParams);
+
+        titleBarAndContextualMenuContainer.addView(line);
     }
 
     public void addTitleBarAndSetButtons(List<TitleBarButtonParams> rightButtons,
