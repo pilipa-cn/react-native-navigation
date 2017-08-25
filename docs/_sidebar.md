@@ -1,17 +1,16 @@
-- Getting started
- - [Installation - iOS](/installation-ios)
- - [Installation - Android](/installation-android)
- - [Usage](/usage)
+- 入门
+ - [安装 - iOS](/installation-ios)
+ - [安装 - Android](/installation-android)
+ - [使用](/usage)
 
-- Guide
- - [Top Level API](/top-level-api)
- - [Screen API](/screen-api)
- - [Deep links](/deep-links)
- - [Android Specific Use Cases](/android-specific-use-cases)
- - [Third Party Libraries Support](/third-party-libraries-support)
+- 指南
+ - [顶级API](/top-level-api)
+ - [页面API](/screen-api)
+ - [深链接](/deep-links)
+ - [Android 特定的使用场景](/android-specific-use-cases)
+ - [第三方库支持](/third-party-libraries-support)
 
-- Customization
-  - [Styling the Navigator](/styling-the-navigator)
-  - [Adding Buttons to the Navigator](/adding-buttons-to-the-navigator)
-  - [Styling the Tab Bar](/styling-the-tab-bar)
-  
+- 自定义
+  - [自定义Navigator](/styling-the-navigator)
+  - [向Navigator添加按钮](/adding-buttons-to-the-navigator)
+  - [修改标签栏样式](/styling-the-tab-bar)

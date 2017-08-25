@@ -18,8 +18,8 @@
 </body>
 <script>
     window.$docsify = {
-        repo: '',
-        name: 'React Native Navigation',
+        repo: 'https://github.com/pilipa-cn/react-native-navigation',
+        name: 'React Native Navigation<br>中文文档',
         search: 'auto',
         themeColor: '#21B8F0',
         loadSidebar: true,
@@ -27,7 +27,19 @@
         maxLevel: 4,
         subMaxLevel: 2,
         auto2top: true,
-        ga: 'UA-XXXXX-Y',
+        search: {
+      noData: {
+        '/de-de/': 'Keine Ergebnisse!',
+        '/zh-cn/': '没有结果!',
+        '/': '没有结果!'
+      },
+      paths: 'auto',
+      placeholder: {
+        '/de-de/': 'Suche',
+        '/zh-cn/': '搜索',
+        '/': '搜索'
+      }
+      },
         plugins: [
             function (hook) {
                 var footer = [
@@ -47,7 +59,6 @@
 <script src="//unpkg.com/docsify/lib/docsify.js"></script>
 <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
 <script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
-<script src="//unpkg.com/docsify/lib/plugins/ga.js"></script>
 <script>
   if (typeof navigator.serviceWorker !== 'undefined') {
     navigator.serviceWorker.register('sw.js')

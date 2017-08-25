@@ -1,21 +1,21 @@
 
 <h1 align="center">
   <img src="_images/logo.png"/><br>
-  React Native Navigation
+  React Native Navigation中文文档
 </h1>
 
-App-wide support for 100% native navigation with an easy cross-platform interface.
+App范围内的 100% 原生导航支持, 并提供易用的跨平台功能接口.
 
 ----
 
-## Important
-Latest stable version is `1.1.x` and is published to npm under tag `latest`. It supports react-native 0.43 and above.
-<br><br>We are currently redesigning and rewriting this project under branch `v2`.
-<br>As a result, new features and pull requests on the current stable version will take more time to process.
+## 重要
+最新稳定版是 `1.1.x` , 在 npm 中以tag `latest`发布. 支持 react-native 0.43 及更高版本.
+<br><br>我们当前正在重新设计重写当前项目, 使用的分支是 `v2`.
+<br>因此, 当前稳定版的新功能和拉取请求通常会多消耗一些时间.
 
-## Why use this package
+## 为什么要使用这个包
 
-One of the major things missing from React Native core is fully featured native navigation. Navigation includes the entire skeleton of your app with critical components like nav bars, tab bars and side menu drawers.
+ React Native核心功能中没有提供的其中很重要一个就是全功能的本地导航. 导航功能一般包含App的完整骨架及关键组件如导航条, 标签栏, 侧边菜单.
 
 If you're trying to deliver a user experience that's on par with the best native apps out there, you simply can't compromise on JS-based components trying to fake the real thing.
 
