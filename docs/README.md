@@ -17,7 +17,7 @@ App范围内的 100% 原生导航支持, 并提供易用的跨平台功能接口
 
  React Native核心功能中没有提供的其中很重要一个就是全功能的本地导航. 导航功能一般包含App的完整骨架及关键组件如导航条, 标签栏, 侧边菜单.
 
-If you're trying to deliver a user experience that's on par with the best native apps out there, you simply can't compromise on JS-based components trying to fake the real thing.
+如果您正想开发一款不输最好的原生App用户体验, 就不能简单的去用基于JS的组件来模拟这些功能.
 
-For example, this package replaces the native [NavigatorIOS](https://facebook.github.io/react-native/docs/navigatorios.html) that has been [abandoned](https://facebook.github.io/react-native/docs/navigator-comparison.html) in favor of JS-based solutions that are easier to maintain. For more details see in-depth discussion [here](https://github.com/wix/react-native-controllers#why-do-we-need-this-package).
+例如,这个包替换了原生的  [NavigatorIOS](https://facebook.github.io/react-native/docs/navigatorios.html) 类, 这个包已经被官方 [抛弃](https://facebook.github.io/react-native/docs/navigator-comparison.html), 只因为 JS版本的解决方案更容易维护. 更多深入讨论可以看 [这里](https://github.com/wix/react-native-controllers#why-do-we-need-this-package).
 

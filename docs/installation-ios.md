@@ -1,16 +1,16 @@
-# iOS Installation
+# iOS 安装
 
-!> Make sure you are using **react-native** version >= 0.43. We also recommend using npm version >= 3
+!> 确保使用的 **react-native** 版本 >= 0.43. 建议 npm 版本 >= 3
 
-1. Install `react-native-navigation` latest stable version.
+1. 安装 `react-native-navigation` 最新稳定版.
 
     ```sh
     yarn add react-native-navigation@latest
     ```
 
-2. In Xcode, in Project Navigator (left pane), right-click on the `Libraries` > `Add files to [project name]`. Add `./node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj` ([screenshots](https://facebook.github.io/react-native/docs/linking-libraries-ios.html#step-1))
+2. 打开 Xcode, 进入 Project Navigator (左侧面板), 右键点击 `Libraries` 选择菜单> `Add files to [project name]`. 添加 `./node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj` ([screenshots](https://facebook.github.io/react-native/docs/linking-libraries-ios.html#step-1))
 
-3. In Xcode, in Project Navigator (left pane), click on your project (top) and select the `Build Phases` tab (right pane). In the `Link Binary With Libraries` section add `libReactNativeNavigation.a` ([screenshots](https://facebook.github.io/react-native/docs/linking-libraries-ios.html#step-2))
+3. 打开 Xcode, 进入 Project Navigator (左侧面板), 点击你的项目 (顶部) and select the `Build Phases` tab (right pane). In the `Link Binary With Libraries` section add `libReactNativeNavigation.a` ([screenshots](https://facebook.github.io/react-native/docs/linking-libraries-ios.html#step-2))
 
 4. In Xcode, in Project Navigator (left pane), click on your project (top) and select the `Build Settings` tab (right pane). In the `Header Search Paths` section add `$(SRCROOT)/../node_modules/react-native-navigation/ios`. Make sure on the right to mark this new path `recursive` ([screenshots](https://facebook.github.io/react-native/docs/linking-libraries-ios.html#step-3))
 
