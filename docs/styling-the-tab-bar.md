@@ -1,4 +1,4 @@
-# Styling the Tab Bar
+# 修改标签页的样式
 
 You can style the tab bar appearance by passing a `tabsStyle` object when the app is originally created (on `startTabBasedApp`).
 

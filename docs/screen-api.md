@@ -1,4 +1,4 @@
-# Screen API
+# 屏幕 API
 
 This API is relevant when in a screen component context - it allows a screen to push other screens, pop screens, change its navigator style, etc. Access to this API is available through the `navigator` object that is passed to your component through `props`.
 
