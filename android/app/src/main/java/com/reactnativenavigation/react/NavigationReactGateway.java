@@ -9,6 +9,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
+import com.facebook.react.modules.network.HackNetWorkMainReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.reactnativenavigation.NavigationApplication;
 import com.reactnativenavigation.bridge.NavigationReactEventEmitter;
@@ -115,7 +116,7 @@ public class NavigationReactGateway implements ReactGateway {
         @Override
         protected List<ReactPackage> getPackages() {
             List<ReactPackage> list = new ArrayList<>();
-            list.add(new MainReactPackage());
+            list.add(new HackNetWorkMainReactPackage());
             list.add(new NavigationReactPackage());
             addAdditionalReactPackagesIfNeeded(list);
             return list;
@@ -129,7 +130,7 @@ public class NavigationReactGateway implements ReactGateway {
 
             for (ReactPackage reactPackage : additionalReactPackages) {
                 if (reactPackage instanceof MainReactPackage)
-                    throw new RuntimeException("Do not create a new MainReactPackage. This is created for you.");
+                    throw new RuntimeException("Do not create a new HackNetWorkMainReactPackage. This is created for you.");
                 if (reactPackage instanceof NavigationReactPackage)
                     throw new RuntimeException("Do not create a new NavigationReactPackage. This is created for you.");
             }

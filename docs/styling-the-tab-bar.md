@@ -1,6 +1,6 @@
 # 修改标签页的样式
 
-You can style the tab bar appearance by passing a `tabsStyle` object when the app is originally created (on `startTabBasedApp`).
+当app 首次启动时(方法 `startTabBasedApp`), 可以通过传递 `tabsStyle` 对象的方式定制标签页的样式.
 
 ```js
 Navigation.startTabBasedApp({

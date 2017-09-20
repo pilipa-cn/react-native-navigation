@@ -1,6 +1,6 @@
 {
   "name": "react-native-navigation",
-  "version": "1.1.135",
+  "version": "1.1.135_httpdns",
   "description": "React Native Navigation - truly native navigation for iOS and Android",
   "license": "MIT",
   "nativePackage": true,
@@ -51,8 +51,8 @@
     "jest": "18.x.x",
     "jest-cli": "18.x.x",
     "jest-react-native": "18.x.x",
-    "react": "16.0.0-alpha.6",
-    "react-native": "0.43.0",
+    "react": "16.0.0-alpha.12",
+    "react-native": "^0.46.0",
     "react-test-renderer": "15.4.2",
     "semver": "5.x.x"
   },
