@@ -1,6 +1,6 @@
 # iOS 安装
 
-!> 确保使用的 **react-native** 版本 >= 0.43. 建议 npm 版本 >= 3
+!> 确保使用的 **react-native** 版本 >= 0.43. 建议 npm 版本 >= 3.
 
 1. 安装 `react-native-navigation` 最新稳定版.
 

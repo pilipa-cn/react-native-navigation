@@ -1,45 +1,45 @@
-# Usage
+# 使用
 
-If you don't like reading, just jump into the fully working example projects:
+如果你有阅读困难症, 可以直接跳转可运行的例子代码库:
 
-* [example](https://github.com/wix/react-native-navigation/tree/master/example) - Example project showing the best practice use of this package. Shows many navigation features.
-* [redux-example](https://github.com/wix/react-native-navigation/tree/master/old-example-redux) - (**deprecated** in favor of [JuneDomingo/movieapp](https://github.com/JuneDomingo/movieapp/tree/feature/similar-movies)) Best practice use of this package in a [redux](https://github.com/reactjs/redux)-based project.
+* [example](https://github.com/wix/react-native-navigation/tree/master/example) - 示例项目, 演示了使用这个包的最佳实践. 演示了很多导航功能.
+* [redux-example](https://github.com/wix/react-native-navigation/tree/master/old-example-redux) - (**已废弃** 请参考 [JuneDomingo/movieapp](https://github.com/JuneDomingo/movieapp/tree/feature/similar-movies)) , 在基于 [redux](https://github.com/reactjs/redux) 的项目中使用此包的最佳实践.
 
-> Note: example redux is deprecated. Since we did not have enough time and resources to maintain both example projects, we decided to stop maintaining the redux example. This does not mean redux can't be used with react-native-navigation (In fact, we use redux in the Wix app). For a working example project which uses redux with RNN you can refer to [JuneDomingo/movieapp](https://github.com/JuneDomingo/movieapp).
+> 注意: redux 例子已废弃. 因为我们没有足够的时间和精力来维护两个示例项目, 最终决定停止维护 redux 例子项目. 但这并不是说 redux 不能在 react-native-navigation中使用 (事实上, 我们在 Wix 应用中使用了redux). 如果需要可以正常运行的 redux + RNN 项目, 请参考 [JuneDomingo/movieapp](https://github.com/JuneDomingo/movieapp).
 
-#### Step 1 - Change the way your app starts
+#### 第1步  - 修改app的启动方式
 
-This would normally go in your `index.ios.js`
+这些代码通常放在 `index.ios.js`
 
 ```js
 import { Navigation } from 'react-native-navigation';
 
 import { registerScreens } from './screens';
 
-registerScreens(); // this is where you register all of your app's screens
+registerScreens(); // 注册App的所有页面
 
-// start the app
+// 启动基于标签的App
 Navigation.startTabBasedApp({
   tabs: [
     {
       label: 'One',
-      screen: 'example.FirstTabScreen', // this is a registered name for a screen
+      screen: 'example.FirstTabScreen', // 这是页面的注册名字
       icon: require('../img/one.png'),
-      selectedIcon: require('../img/one_selected.png'), // iOS only
+      selectedIcon: require('../img/one_selected.png'), // 仅支持 iOS
       title: 'Screen One'
     },
     {
       label: 'Two',
       screen: 'example.SecondTabScreen',
       icon: require('../img/two.png'),
-      selectedIcon: require('../img/two_selected.png'), // iOS only
+      selectedIcon: require('../img/two_selected.png'), // 仅支持 iOS
       title: 'Screen Two'
     }
   ]
 });
 ```
 
-#### Step 2 - Register all of your screen components
+#### 第2步 - Register all of your screen components
 
 Every screen that you want to be able to place in a tab, push to the navigation stack or present modally needs to be registered. We recommend doing this in a central place, like [screens/index.js](https://github.com/wix/react-native-navigation/blob/master/example/src/screens/index.ios.js).
 
