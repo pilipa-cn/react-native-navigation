@@ -39,11 +39,11 @@ Navigation.startTabBasedApp({
 });
 ```
 
-#### 第2步 - Register all of your screen components
+#### 第2步 - 注册所有页面组件
 
-Every screen that you want to be able to place in a tab, push to the navigation stack or present modally needs to be registered. We recommend doing this in a central place, like [screens/index.js](https://github.com/wix/react-native-navigation/blob/master/example/src/screens/index.ios.js).
+所有页面都需要注册, 这些页面可以被放进标签页, 压进导航栈或者作为弹出窗口. 我们强烈在一个地方集中注册,  就像 [screens/index.js](https://github.com/wix/react-native-navigation/blob/master/example/src/screens/index.ios.js).
 
-> Note: Since your screens will potentially be bundled with other packages, your registered name must be **unique**! Follow a namespacing convention like `packageName.ScreenName`.
+> 注意: 因为页面可能会和其它代码库一起打包, 页面的注册名必须 **唯一**! Follow a namespacing convention like `packageName.ScreenName`.
 
 ```js
 import { Navigation } from 'react-native-navigation';
@@ -60,7 +60,7 @@ export function registerScreens() {
 }
 ```
 
-#### Step 3 - That's it
+#### 第3步 - 就这些了
 
 If you want to do a navigation action like push a new screen over an existing one, take a look at the [Screen API](#screen-api). It would look something like this:
 
