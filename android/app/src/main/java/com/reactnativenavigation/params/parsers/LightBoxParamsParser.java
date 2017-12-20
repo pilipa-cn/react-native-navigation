@@ -20,6 +20,8 @@ public class LightBoxParamsParser extends Parser {
         result.screenId = params.getString("screenId");
         result.navigationParams = new NavigationParams(params.getBundle("navigationParams"));
         result.backgroundColor = getColor(params, "backgroundColor");
+        result.tapBackgroundToDismiss = params.getBoolean("tapBackgroundToDismiss");//fix
+        result.overrideBackPress = params.getBoolean("overrideBackPress");// Fixbug
         return result;
     }
 }
