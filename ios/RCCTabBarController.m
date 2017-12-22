@@ -14,14 +14,28 @@
 
 @end
 
+
+@interface RCCTabBarController ()
+
+@property(nonatomic,copy)NSMutableArray * isInterceptArr;
+
+@end
 @implementation RCCTabBarController
 
-
+- (NSMutableArray *)isInterceptArr{
+  if (!_isInterceptArr) {
+    _isInterceptArr = [NSMutableArray array];
+  }
+  return _isInterceptArr;
+}
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations {
   return [self supportedControllerOrientations];
 }
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+  
+  
+  
   id queue = [[RCCManager sharedInstance].getBridge uiManager].methodQueue;
   dispatch_async(queue, ^{
     [[[RCCManager sharedInstance].getBridge uiManager] configureNextLayoutAnimation:nil withCallback:^(NSArray* arr){} errorCallback:^(NSArray* arr){}];
@@ -38,10 +52,11 @@
   } else {
     [RCCTabBarController sendScreenTabPressedEvent:viewController body:nil];
   }
+  if([self.isInterceptArr[[tabBarController.viewControllers indexOfObject:viewController]] boolValue]){
+    return false;
+  };
   
-  
-  
-  return YES;
+  return true;
 }
 
 - (UIImage *)image:(UIImage*)image withColor:(UIColor *)color1
@@ -64,7 +79,6 @@
 {
   self = [super init];
   if (!self) return nil;
-  
   self.delegate = self;
   
   self.tabBar.translucent = YES; // default
@@ -108,13 +122,13 @@
       UIColor *color = tabBarBackgroundColor != (id)[NSNull null] ? [RCTConvert UIColor:tabBarBackgroundColor] : nil;
       self.tabBar.barTintColor = color;
     }
-
+    
     NSString *tabBarTranslucent = tabsStyle[@"tabBarTranslucent"];
     if (tabBarTranslucent)
     {
       self.tabBar.translucent = [tabBarTranslucent boolValue] ? YES : NO;
     }
-
+    
     NSString *tabBarHideShadow = tabsStyle[@"tabBarHideShadow"];
     if (tabBarHideShadow)
     {
@@ -127,6 +141,11 @@
   // go over all the tab bar items
   for (NSDictionary *tabItemLayout in children)
   {
+    if (tabItemLayout[@"props"] && tabItemLayout[@"props"][@"isIntercept"]) {
+      [self.isInterceptArr addObject:tabItemLayout[@"props"][@"isIntercept"]];
+    }else{
+      [self.isInterceptArr addObject:@(false)];
+    }
     // make sure the layout is valid
     if (![tabItemLayout[@"type"] isEqualToString:@"TabBarControllerIOS.Item"]) continue;
     if (!tabItemLayout[@"props"]) continue;
@@ -305,7 +324,7 @@
         iconImage = [RCTConvert UIImage:icon];
         iconImage = [[self image:iconImage withColor:self.tabBar.tintColor] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         viewController.tabBarItem.image = iconImage;
-      
+        
       }
       UIImage *iconImageSelected = nil;
       id selectedIcon = actionParams[@"selectedIcon"];
@@ -387,3 +406,4 @@
 
 
 @end
+
