@@ -7,6 +7,8 @@ public class ScreenParams extends BaseScreenParams {
     public List<PageParams> topTabParams;
     public List<String> sharedElementsTransitions;
 
+    public boolean isIntercept;// 是否拦截Tab点击事件
+
     public boolean hasTopTabs() {
         return topTabParams != null && !topTabParams.isEmpty();
     }

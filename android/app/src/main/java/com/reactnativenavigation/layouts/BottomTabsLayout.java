@@ -307,8 +307,16 @@ public class BottomTabsLayout extends BaseLayout implements AHBottomNavigation.O
         return getCurrentScreenStack().peek();
     }
 
+    // 非用户触发的选择标签不产生标签变更事件
     public void selectBottomTabByTabIndex(Integer index) {
-        bottomTabs.setCurrentItem(index);
+        if (bottomTabs.getCurrentItem() != index) {
+            bottomTabs.setCurrentItemWithoutInvokingTabSelectedListener(index);
+            hideCurrentStack();
+            showNewStack(index);
+            EventBus.instance.post(new ScreenChangedEvent(getCurrentScreenStack().peek().getScreenParams()));
+        } else {
+            bottomTabs.setCurrentItem(index);
+        }
     }
 
     public void selectBottomTabByNavigatorId(String navigatorId) {
@@ -373,14 +381,25 @@ public class BottomTabsLayout extends BaseLayout implements AHBottomNavigation.O
         slidingOverlaysQueue.destroy();
     }
 
+    private boolean isTabIntercept(int position) {
+        return params.tabParams.get(position).isIntercept;
+    }
+
     @Override
     public boolean onTabSelected(int position, boolean wasSelected) {
-        if (wasSelected) {
+        if (wasSelected) {// 当前标签页已经被选中的状态
             sendTabReselectedEventToJs();
             return false;
         }
 
+
+
         final int unselectedTabIndex = currentStackIndex;
+        if(isTabIntercept(position)) {// 即将选中状态, 发出事件但不更新UI
+            sendTabSelectedEventToJs(position, unselectedTabIndex);
+            return false;
+        }
+
         hideCurrentStack();
         showNewStack(position);
         EventBus.instance.post(new ScreenChangedEvent(getCurrentScreenStack().peek().getScreenParams()));

@@ -96,6 +96,11 @@ public class BottomTabs extends AHBottomNavigation {
         }
     }
 
+    // 不触发选择标签事件回调
+    public void setCurrentItemWithoutInvokingTabSelectedListener(Integer index) {
+        setCurrentItem(index, false);
+    }
+
     private void setVisibility(boolean bottomTabsHidden) {
         setVisibility(bottomTabsHidden ? GONE : VISIBLE);
     }
@@ -117,12 +122,12 @@ public class BottomTabs extends AHBottomNavigation {
 
     private boolean hasBadgeTextColor() {
         return AppStyle.appStyle.bottomTabBadgeTextColor != null &&
-               AppStyle.appStyle.bottomTabBadgeTextColor.hasColor();
+                AppStyle.appStyle.bottomTabBadgeTextColor.hasColor();
     }
 
     private boolean hasBadgeBackgroundColor() {
         return AppStyle.appStyle.bottomTabBadgeBackgroundColor != null &&
-               AppStyle.appStyle.bottomTabBadgeBackgroundColor.hasColor();
+                AppStyle.appStyle.bottomTabBadgeBackgroundColor.hasColor();
     }
 
     private void setFontFamily() {

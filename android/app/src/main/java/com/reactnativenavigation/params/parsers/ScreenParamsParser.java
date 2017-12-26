@@ -47,6 +47,8 @@ public class ScreenParamsParser extends Parser {
         result.fabParams = ButtonParser.parseFab(params, result.navigationParams.navigatorEventId, result.navigationParams.screenInstanceId);
 
         result.tabLabel = getTabLabel(params);
+        result.isIntercept = getTabIntercept(params);
+
         result.tabIcon = new TabIconParser(params).parse();
 
         result.animateScreenTransitions = new AnimationParser(params).parse();
@@ -81,6 +83,14 @@ public class ScreenParamsParser extends Parser {
             tabLabel = params.getString("label");
         }
         return tabLabel;
+    }
+
+    private static boolean getTabIntercept(Bundle params) {
+        boolean intercept = false;
+        if (hasKey(params, "isIntercept")) {
+            intercept = params.getBoolean("isIntercept", false);
+        }
+        return intercept;
     }
 
     private static List<PageParams> parseTopTabs(Bundle params) {
