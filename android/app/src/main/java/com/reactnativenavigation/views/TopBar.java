@@ -56,7 +56,9 @@ public class TopBar extends AppBarLayout {
         FrameLayout.LayoutParams bottomLineLayoutParams = new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT, 1, Gravity.BOTTOM);
         View line = new View(getContext());
-        line.setBackgroundColor(0xffE6E6E6);
+        line.setBackgroundColor(0xff000000);// Topbar 是页面最顶部包含返回navbar的一个组件, 默认高度是1,
+        // 当页面背景为黑色时, 会出现一像素的白条, 这里修改为黑色以实现和状态栏颜色一致
+        // SingleScreen [ Topbar( 1像素或者有返回按钮时为更高像素) ContentView(页面内容区)
         line.setLayoutParams(bottomLineLayoutParams);
 
         titleBarAndContextualMenuContainer.addView(line);
